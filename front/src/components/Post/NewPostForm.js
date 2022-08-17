@@ -13,6 +13,8 @@ export default function NewPostForm() {
     const errors = useSelector((state) => state.errorReducer.postError)
     const dispatch = useDispatch()
 
+    //Vu qu'on a pas besoin d'importer des éléments de posts (au contraire, on exporte) pas besoin du postreducer
+
     //Url est natif, idem pour createObjectUrl
     //On appelle les trois fonctions pour mettre autre chose que du texte
 

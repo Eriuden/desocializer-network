@@ -7,7 +7,7 @@ export default function postReducer(state= initialState, action) {
         case GET_POSTS:
             return action.payload
         case LIKE_POST:
-            return state.map((post) => {
+            return state.map((post,userId) => {
                 if (post._id === action.payload.postId)
                     return {
                         ...post,

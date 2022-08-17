@@ -41,15 +41,7 @@ const userSchema = new mongoose.Schema(
             type:String,
             max: 1024,
         },
-        followers: {
-            type:[String]
-        },
-        following: {
-            type: [String]
-        },
-        likes: {
-            type: [String]
-        }
+        
     },
     {
         timestamps: true,

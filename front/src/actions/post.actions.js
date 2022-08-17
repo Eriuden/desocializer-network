@@ -63,7 +63,7 @@ export const updatePost = (postId, message) => {
     }
 }
 
-export const likePost = () => {
+export const likePost = (postId,userId) => {
     return (dispatch) => {
         return axios({
             method: 'patch',
@@ -77,7 +77,7 @@ export const likePost = () => {
     }
 }
 
-export const unLikePost = () => {
+export const unLikePost = (postId,userId) => {
     return(dispatch) => {
         return axios({
             method:'patch',
