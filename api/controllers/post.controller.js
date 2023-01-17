@@ -221,7 +221,7 @@ module.exports.editCommentPost = (req, res) => {
 
       return docs.save((err) => {
         if (!err) return res.status(200).send(docs);
-        return res.status(500).szend(err);
+        return res.status(500).send(err);
       });
     });
   } catch {

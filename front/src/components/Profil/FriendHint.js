@@ -11,39 +11,41 @@ export default function FriendHint() {
   const userData = useSelector((state) => state.userReducer);
   const usersData = useSelector((state) => state.usersReducer);
 
-  const notFriendList = () => {
-    //on boucle sur les userData
-    //Si l'id de l'user de l'itération n'est pas celui de l'userData
-    // Donc qu'il ne s'agit pas de lui même
-    // et que l'on peut trouver l'id de l'userData dans les followers
-    // on push l'id dans le tableau, de sorte que l'on propose des gens pas encore en abo
-    let array = [];
-    usersData.map((user) => {
-      if (user._id !== userData._id && user.followers.includes(userData._id))
-        return array.push(user._id);
-    });
-    // en fonction de la taille de l'écran, les suggestions seront plus ou moins nombreuses
-    // le length, encore et toujours, pour quantifier les valeurs d'un tableau
-    array.sort(() => 0.5 - Math.random());
-    if (window.innerHeight > 780) {
-      array.length = 5;
-    } else if (window.innerHeight > 720) {
-      array.length = 4;
-    } else if (window.innerHeight > 615) {
-      array.length = 2;
-    } else if (window.innerHeight > 540) {
-      array.length = 1;
-    } else {
-      array.length = 0;
-    }
-    setFriendsHint(array);
-    //On donne à friendHint la valeur de l'array
-  };
+  
 
   //PlayOnce sera placé en false si ça marche, d'ou son nom
   // Du coup si les données user existent
 
   useEffect(() => {
+
+    const notFriendList = () => {
+      //on boucle sur les userData
+      //Si l'id de l'user de l'itération n'est pas celui de l'userData
+      // Donc qu'il ne s'agit pas de lui même
+      // et que l'on peut trouver l'id de l'userData dans les followers
+      // on push l'id dans le tableau, de sorte que l'on propose des gens pas encore en abo
+      let array = [];
+      usersData.map((user) => {
+        if (user._id !== userData._id && user.followers.includes(userData._id)){return array.push(user.id)}
+          return user
+      });
+      // en fonction de la taille de l'écran, les suggestions seront plus ou moins nombreuses
+      // le length, encore et toujours, pour quantifier les valeurs d'un tableau
+      array.sort(() => 0.5 - Math.random());
+      if (window.innerHeight > 780) {
+        array.length = 5;
+      } else if (window.innerHeight > 720) {
+        array.length = 4;
+      } else if (window.innerHeight > 615) {
+        array.length = 2;
+      } else if (window.innerHeight > 540) {
+        array.length = 1;
+      } else {
+        array.length = 0;
+      }
+      setFriendsHint(array);
+      //On donne à friendHint la valeur de l'array
+    };
     if (playOnce && !isEmpty(usersData[0]) && !isEmpty(userData._id)) {
       notFriendList();
       setIsLoading(false);
@@ -76,6 +78,7 @@ export default function FriendHint() {
                   );
                 }
               }
+            return user
             })}
         </ul>
       )}
