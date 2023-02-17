@@ -78,6 +78,8 @@ module.exports.follow = async (req,res) => {
         await userModel.findByIdAndUpdate(
             req.params.id,
             // on ajoute l'id de la personne à suivre
+            //On crée ICI l'idToFollow, il ajoute donc au set
+            //cet élément et le fait correspondre à favorites
             { $addToSet: { following: req.body.idToFollow }},
             { new: true, upsert: true},
             (err, docs) => {
