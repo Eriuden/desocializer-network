@@ -7,7 +7,7 @@ import { deletePost } from '../../actions/post.actions'
 //qui aura besoin de l'id(props.id sera remplacé en card, on a mis la dite id={post id}, le code comprendra)
 //On mets donc un demande de confirmation, et si c'est bon, il exécute deleteQuote (upupupupu)
 
-export default function DeleteCard(props) {
+export default function DeleteCard({props}) {
   const dispatch = useDispatch()
   const deleteQuote = () => dispatch(deletePost(props.id))
   return (
