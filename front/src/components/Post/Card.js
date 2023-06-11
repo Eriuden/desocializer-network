@@ -2,12 +2,11 @@
 import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { updatePost } from "../../../../api/controllers/post.controller";
-import { getPosts } from "../../actions/post.actions";
 import FollowHandler from "../Profil/followHandler";
 import LikeButton from "./LikeButton";
 import DeleteCard from "./DeleteCard";
 import CardComment from "./CardComment";
-import { dateParser } from "../Utils";
+import { dateParser, isEmpty } from "../Utils";
 
 export default function Card({ post }) {
   const [isLoading, setIsLoading] = useState(true);
