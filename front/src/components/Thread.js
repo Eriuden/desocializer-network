@@ -31,7 +31,7 @@ export default function Thread() {
     if (loadPost) {
       dispatch(getPosts(count));
       setLoadPost(false);
-      setCount(count + 5);
+      setCount((prevCount) => setCount(prevCount + 5));
     }
 
     window.addEventListener("scroll", loadMore);
