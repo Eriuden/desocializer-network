@@ -25,9 +25,13 @@ export default function SignUpForm() {
     Si le password ne correpsond pas au veuillez confirmer vitre mot de passe, alors on écrit ça dans l'erreur et on ne va pas plus loin
     Idem si les conditions générales ne sont pas checkées (note: ca semble être un attribut natif des checkbox)*/
 
-    if (password !== passwordControl || !terms.checked) {
+    if (password !== passwordControl || password.length <8 || !terms.checked) {
       if(password !== passwordControl)
       passwordConfError.innerHTML ="les mots de passe ne correspondent pas"
+
+      if(password.length < 8) {
+        passwordError.innerHTML="Mot de passe trop court, minimum 8 caractères"
+      }
       
       if (!terms.checked)
       termsError.innerHTML = "veuillez valider les conditions générales"
