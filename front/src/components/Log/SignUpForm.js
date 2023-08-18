@@ -22,19 +22,21 @@ export default function SignUpForm() {
     termsError.innerHTML=""
 
     /* Celui là est dix fois plus long, car il ne s'agit pas de demander deux trois trucs, mais une masse
-    Si le password ne correpsond pas au veuillez confirmer vitre mot de passe, alors on écrit ça dans l'erreur et on ne va pas plus loin
+    Si le password ne correspond pas au veuillez confirmer votre mot de passe, alors on écrit ça dans l'erreur et on ne va pas plus loin
     Idem si les conditions générales ne sont pas checkées (note: ca semble être un attribut natif des checkbox)*/
 
     if (password !== passwordControl || password.length <8 || !terms.checked) {
-      if(password !== passwordControl)
-      passwordConfError.innerHTML ="les mots de passe ne correspondent pas"
+      if(password !== passwordControl){
+        passwordConfError.innerHTML ="les mots de passe ne correspondent pas"
+      }
 
       if(password.length < 8) {
         passwordError.innerHTML="Mot de passe trop court, minimum 8 caractères"
       }
       
-      if (!terms.checked)
-      termsError.innerHTML = "veuillez valider les conditions générales"
+      if (!terms.checked){
+        termsError.innerHTML = "veuillez valider les conditions générales"
+      }
     /*Si tout va bien donc 
     on appelle la route de register, comme on crée un truc, c'est du post
     On passe dans les données ce dont on aura besoin, soit son pseudo, son mail et son password
@@ -67,9 +69,9 @@ export default function SignUpForm() {
   return (
     <>
       {formSubmit /*Si formSubmit est true, on fait apparaitre ce message, sinon, on envoie le formulaire d'inscription*/? (
-        <>
-        <SignInForm />
+        <> 
         <h4 className='="success'> Inscription réussie, veuillez vous connecter</h4>
+        <SignInForm />
         </> 
       ) : (
         <form action ="" onSubmit={handleRegister}> 

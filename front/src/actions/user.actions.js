@@ -15,8 +15,9 @@ export const GET_USER_ERRORS= "GET_USER_ERRORS"
 // en promesse, on fait le dispatch de redux
 //qui a pour type une const comme au dessus qui donne son nom à l'action
 //puis le payload qui contient les données de l'objet qui nous intéresse
-//comme on a d'abord read l'user, c'est ici l'user
+//comme on a d'abord read l'user, c'est ici simplement les données globales de la réponse de la requète
 //j'aurais mis la requète des postes, il aurait les données des postes
+//Le catch permet de gérer une erreur de requète, le paramètres permettra au code de gérer ça tout seul
 
 export const getUser = (uid) => {
     return (dispatch) => {
@@ -30,6 +31,9 @@ export const getUser = (uid) => {
     }
 }
 
+//Dans le cas de post, il faut un params hors url pour gérer la création de données
+//Comme la requète d'au dessus, l'autre param sert pour que la requète inscrive l'id dans l'url
+
 export const uploadPicture = (data,id) => {
     return (dispatch) => {
         return axios
@@ -41,6 +45,7 @@ export const uploadPicture = (data,id) => {
                     dispatch ({ type: GET_USER_ERRORS, payload:""})
                     return axios
                     .get(`${process.env.REACT_APP_API_URL}api/user/${id}`)
+                    //Ici, on a besoin de traiter que l'image dans les données
                     .then((res) => {
                         dispatch({ type: UPLOAD_PICTURE, payload: res.data.picture})
                     })
@@ -55,7 +60,7 @@ export const updateBio = (userId, bio) => {
         return axios({
             //méthode pour update: put
             // on prends la requète de read des user, et on précise qu'on veut la bonne id
-            // data = req.body, et on passe le paramètre
+            // data =  paramètre pour ce qu'on modifiera, qui fera office de payload aussi
             //cette fois, pas besoin de get en fin, on modifie, comme dirait Laviosier...
             method: "put",
             url: `${process.env.REACT_APP_API_URL}api/user/` + userId,
