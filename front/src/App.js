@@ -8,6 +8,8 @@ import axios from 'axios';
 import Navbar from './components/Navbar';
 import { useDispatch } from 'react-redux';
 import { getUser } from './actions/user.actions';
+import Home from './pages/Home';
+import Trending from './pages/Trending';
 
 
 function App() {
@@ -39,8 +41,9 @@ function App() {
       Test
       <Navbar />
       <Routes>
-      <Route exact path="/profil" element={<Profil/>}/>
-      <Route exact path="/trending" element={<trending/>}/>
+        <Route exact path="/" element={<Home/>}/>
+        <Route exact path="/profil" element={<Profil/>}/>
+        <Route exact path="/trending" element={<Trending/>}/>
       </Routes>
       </UidContext.Provider>
       
