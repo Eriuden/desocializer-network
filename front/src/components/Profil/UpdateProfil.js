@@ -100,6 +100,7 @@ export default function UpdateProfil() {
                       )
                     }
                   }
+                  return null;
                 })}
               </ul>
 
@@ -133,8 +134,9 @@ export default function UpdateProfil() {
                         </li>
                       )
                     }
-                    else return null
+                    
                   }
+                  return null;
                 })}
               </ul>
 

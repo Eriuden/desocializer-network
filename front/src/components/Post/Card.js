@@ -1,7 +1,7 @@
 /* eslint-disable no-undef */
 import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { updatePost } from "../../../../api/controllers/post.controller";
+import { updatePost } from "../../actions/post.actions";
 import FollowHandler from "../Profil/followHandler";
 import LikeButton from "./LikeButton";
 import DeleteCard from "./DeleteCard";
@@ -9,13 +9,15 @@ import CardComment from "./CardComment";
 import { dateParser, isEmpty } from "../Utils";
 
 export default function Card({ post }) {
-  const [isLoading, setIsLoading] = useState(true);
-  const [isUpdated, setIsUpdated] = useState(false);
-  const [textUpdate, setTextUpdate] = userData(null);
-  const [showComments, setShowComments] = userData(false);
   const usersData = useSelector((state) => state.usersReducer);
   const userData = useSelector((state) => state.userReducer);
   const dispatch = useDispatch();
+  
+  const [isLoading, setIsLoading] = useState(true);
+  const [isUpdated, setIsUpdated] = useState(false);
+  const [textUpdate, setTextUpdate] = useState(null);
+  const [showComments, setShowComments] = useState(false);
+  
 
   const updateItem = () => {
     if (textUpdate) {

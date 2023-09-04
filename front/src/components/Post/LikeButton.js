@@ -3,10 +3,12 @@ import {UidContext} from "../AppContext"
 import Popup from 'reactjs-popup'
 import 'reactjs-popup/dist/index.css'
 import { likePost, unLikePost } from '../../actions/post.actions'
+import { useDispatch } from 'react-redux'
 
 export default function LikeButton({post}) {
     const [liked, setLiked] =useState(false)
     const uid = useContext(UidContext)
+    const dispatch= useDispatch()
 
     //les post.untel sont des React props
     //en effet like button est marqué likebutton post={post.id} de la même manière que dans delete, il comprendra donc ca veut dire quoi la props

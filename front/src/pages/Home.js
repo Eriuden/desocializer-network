@@ -3,7 +3,7 @@ import { UidContext } from "../components/AppContext";
 import LeftNav from "../components/LeftNav";
 import NewPostForm from "../components/Post/NewPostForm";
 import Thread from "../components/Thread";
-import Log from "../components/Log";
+import IndexLog from "../components/Log/IndexLog";
 import Trends from "../components/Trends";
 import FriendHint from "../components/Profil/FriendHint";
 import { useContext } from "react";
@@ -19,7 +19,7 @@ export default function Home() {
             //sinon, on lui propose de se co, mais pas de s'inscrire
             <NewPostForm />
           ) : (
-            <Log signin={true} signup={false} />
+            <IndexLog signin={true} signup={false} />
           )}
         </div>
         <Thread />

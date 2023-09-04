@@ -6,15 +6,15 @@ export default function LeftNav() {
     <div className="leftNavContainer">
         <div className="icons">
             <div className="icons-bis">
-                <Link to={"/"} activeClassName ="active-left-nav">
+                <Link to={"/"} className ="active-left-nav">
                     <img src="./img/icons/home.svg" alt="home" />
                 </Link>
                 <br/>
-                <Link to={"/trending"} activeClassName ="active-left-nav">
+                <Link to={"/trending"} className ="active-left-nav">
                     <img src="./img/icons/rocket.svg" alt="trending" />
                 </Link>
                 <br/>
-                <Link to={"/profil"} activeClassName ="active-left-nav">
+                <Link to={"/profil"} className ="active-left-nav">
                     <img src="./img/icons/user.svg" alt="profil" />
                 </Link>
             </div>

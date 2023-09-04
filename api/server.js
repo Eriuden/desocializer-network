@@ -9,7 +9,6 @@ const {checkUser, requireAuth} = require('./middleware/auth.middleware')
 const cors = require ("cors")
 const app = express();
 
-app.use(cors({origin: process.env.CLIENT_URL}))
 
 const corsOptions = {
     origin: process.env.CLIENT_URL,

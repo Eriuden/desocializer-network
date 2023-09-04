@@ -1,4 +1,5 @@
-import React from 'react'
+import React, {useState, useEffect} from 'react'
+import { Link } from 'react-router-dom'
 import { useDispatch, useSelector } from 'react-redux'
 import { addPost, getPosts } from '../../actions/post.actions'
 import { isEmpty, timeStampParser } from '../Utils'
@@ -29,8 +30,7 @@ export default function NewPostForm() {
     //On lui dit ce qui doit être chargé en fonction de la dite clé
     
 
-    const handlePost = () => {
-        async () => {
+    const handlePost = async() => { 
             if (message || picture || video) {
               const data = new FormData()
               data.append('posterId', userData._id)  
@@ -45,8 +45,6 @@ export default function NewPostForm() {
             } else {
               alert("veuillez entrer un message")
             }
-
-        }
     }
 
     //On boucle pour chaque lien trouvé, si le lien inclus l'url d'une vidéo youtube
@@ -124,7 +122,7 @@ export default function NewPostForm() {
                                     <div className="pseudo">
                                         <h3>{userData.pseudo}</h3>
                                     </div>
-                                    <span>{timeStampParser(date.now())}</span>
+                                    <span>{timeStampParser(Date.now())}</span>
                                 </div>
                                 <div className="content">
                                     <p>{message}</p>
