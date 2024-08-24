@@ -1,6 +1,6 @@
 /* eslint-disable no-undef */
 import React, { useEffect, useState } from "react";
-import { getPosts } from "../actions/post.actions";
+import { getPosts } from "../redux/actions/post.actions";
 import { useDispatch, useSelector } from "react-redux";
 import Card from "./Post/Card";
 import { isEmpty } from "./Utils";

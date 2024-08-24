@@ -2,7 +2,7 @@ import React, { useContext, useEffect, useState } from 'react'
 import {UidContext} from "../AppContext"
 import Popup from 'reactjs-popup'
 import 'reactjs-popup/dist/index.css'
-import { likePost, unLikePost } from '../../actions/post.actions'
+import { likePost, unLikePost } from '../../redux/actions/post.actions'
 import { useDispatch } from 'react-redux'
 
 export default function LikeButton({post}) {

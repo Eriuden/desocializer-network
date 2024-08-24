@@ -1,7 +1,7 @@
 /* eslint-disable no-undef */
 import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { updatePost } from "../../actions/post.actions";
+import { updatePost } from "../../redux/actions/post.actions";
 import FollowHandler from "../Profil/followHandler";
 import LikeButton from "./LikeButton";
 import DeleteCard from "./DeleteCard";

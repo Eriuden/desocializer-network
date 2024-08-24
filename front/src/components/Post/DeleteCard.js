@@ -1,6 +1,6 @@
 import React from 'react'
 import { useDispatch } from 'react-redux'
-import { deletePost } from '../../actions/post.actions'
+import { deletePost } from '../../redux/actions/post.actions'
 
 //Comme d'hab avec une fonction delete, très court
 //On définit une const pour le dispatch de la fonction redux, 

@@ -1,7 +1,7 @@
 /* eslint-disable no-undef */
 import React, { useEffect, useState } from "react";
 import { useDispatch } from "react-redux";
-import { deleteComment, editComment } from "../../actions/post.actions";
+import { deleteComment, editComment } from "../../redux/actions/post.actions";
 import { UidContext } from "../AppContext";
 
 export default function EditDeleteComment({ comment, postId }) {

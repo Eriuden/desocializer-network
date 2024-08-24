@@ -1,7 +1,7 @@
 /* eslint-disable no-undef */
 import React from "react";
 import { useSelector, useDispatch } from "react-redux";
-import { addComment, getPosts } from "../../actions/post.actions";
+import { addComment, getPosts } from "../../redux/actions/post.actions";
 import FollowHandler from "../Profil/followHandler";
 import { isEmpty, timeStampParser } from "../Utils";
 import EditDeleteComment from "./EditDeleteComment";
